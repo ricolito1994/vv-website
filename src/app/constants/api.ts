@@ -1,3 +1,4 @@
+import { EndpointType } from "app/models/api.model";
 /**
  * api routes
  * 
@@ -23,7 +24,6 @@
  * http://localhost:8080/user/get_user
  * 
  */
-import { EndpointType } from "app/models/api.model";
 
 const BASE_URL = process.env.REACT_APP_BASE_URL;
 
@@ -32,10 +32,26 @@ const USER: Object = {
     'show'         : (userId: Number):      string => `${BASE_URL}/user/get_user/${userId}`
 }
 
-
+/*
+*
+* Use this pattern if you create your own endpoint
+* and include it on the export 
+* so that you can use it outside
+* this file
+* 
+* EndpointType is a model that defines
+* the return type of each endpoint object
+* @return
+* endpoint: string
+* req: HTTPMethod - get | post | patch | delete 
+* basic CRUD
+*
+*/
 const LISTING: Object = {
     'get'          : ():                    EndpointType => ({endpoint: `${BASE_URL}/listing/get`,  req: "get"}),
-    'show'         : (listingId: Number):   EndpointType => ({endpoint: `${BASE_URL}/listing/${listingId}`,  req: "get"}),
+    'post'         : ():                    EndpointType => ({endpoint: `${BASE_URL}/listing/post`,  req: "post"}),
+    'show'         : (listingId: Number):   EndpointType => ({endpoint: `${BASE_URL}/listing/${listingId}/show`,  req: "get"}),
+    'patch'        : (listingId: Number):   EndpointType => ({endpoint: `${BASE_URL}/listing/${listingId}/patch`,  req: "patch"}),
 }
 
 /*

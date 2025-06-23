@@ -33,16 +33,16 @@ import {
 
 export abstract class ApiService {
     
-  accessToken: string | boolean;
+  accessToken: string | null;
   apiClient: AxiosInstance;
   baseUrl: string;
   abortControllerSignal: any | null;
   methodMap: Record<HTTPMethod, Function>;
 
-  constructor(accessToken: string) {
+  constructor(accessToken: string|null) {
     this.accessToken = accessToken;
     this.baseUrl = process.env.REACT_APP_BASE_URL ?? '';
-    this.apiClient = this.accessToken === '' ? this.getApiClientWithoutAuthentication() : this.getApiClient();
+    this.apiClient = (this.accessToken === '' || this.accessToken) ? this.getApiClientWithoutAuthentication() : this.getApiClient();
     this.methodMap = {
         get     : this.apiClient.get.bind(this.apiClient),
         post    : this.apiClient.post.bind(this.apiClient),
@@ -84,8 +84,9 @@ export abstract class ApiService {
     data?     : any,
     config?   : AxiosRequestConfig
   ): Promise<AxiosResponse <T>> {
-    if (this.abortControllerSignal && config) {
-        config.signal = this.abortControllerSignal
+    if (this.abortControllerSignal) {
+        config = config ? { ...config, signal: this.abortControllerSignal } : 
+            { signal: this.abortControllerSignal }
     }
     return (endPoint.req === 'get' || endPoint.req === 'delete') ? 
         this.methodMap[endPoint.req](endPoint.endpoint, config): 
