@@ -27,10 +27,14 @@ const VVNavbar = (): React.ReactElement => {
             <ul className="vv-nav-links">
                {
                     pages.map((page:any, index:number) => (
-                        <li className="vv-nav-li"><a href="#" key={index}> {page.name} </a></li>
+                        <li key={index} className="vv-nav-li">
+                            <a href="#"> {page.name} </a>
+                        </li>
                     ))
                }
-               <li><Button>RESERVATIONS</Button></li>
+                <li>
+                    <Button>RESERVATIONS</Button>
+                </li>
             </ul>
         </nav>
     )
