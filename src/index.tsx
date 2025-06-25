@@ -4,7 +4,6 @@ import 'antd/dist/reset.css';
 import './app/styles/index.css';
 import './app/styles/vvnavbar.style.css';
 import './app/styles/mainpage.mainsection.css';
-import './app/styles/accomodation.section.style.css'
 import App from 'app';
 import reportWebVitals from 'reportWebVitals';
 import { HelmetProvider } from 'react-helmet-async';
