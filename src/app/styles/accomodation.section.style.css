@@ -1,23 +1,41 @@
-.vv-section-container {
-  padding-top: 3rem;
-  padding-top: 2rem;
+.accommodation-section {
+    padding: 20px 20px;
 }
 
-.vv-section {
-  padding: 3rem 1rem;
-  text-align: center;
+.section-title {
+   text-align: center;
 }
 
-.vv-section-title {
-  font-size: 2rem;
-  font-weight: bold;
-  margin-bottom: 2rem;
-  text-align: center;
+.room-cards-container {
+    /* width: 2800px;
+    left: 0px;
+    display: block;
+    transition: all;
+    transform: translate3d(0px, 0px, 0px); */
+    display: none;
+    position: relative;
+    width: 100%
 }
 
-.vv-section-content {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 1.5rem;
+.room-cards-wrapper {
+    width: 280px;
+}
+
+.room-cards {
+    margin: 10px;
+    border: 1px solid #ccc;
+    padding-bottom: 10px;
+}
+
+.room-image {
+    max-width: 100%;
+    height: auto;
+}
+
+.room-name {
+    margin-top: 20px;
+}
+
+.room-description {
+    display: none;
 }
