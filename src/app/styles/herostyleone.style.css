@@ -1,0 +1,29 @@
+.hero-style-one {
+  padding: 4rem 2rem;
+  text-align: center;
+  /* background-color: #f5f5f5; */
+}
+
+.hero-header {
+  font-family: 'Allura '; 
+  font-size: 3rem;
+  color: #333;
+  margin-bottom: -4px;
+}
+
+.hero-subheader {
+  font-family: 'Allura', cursive;
+  font-style: italic;
+  font-size: 1rem;
+  color: #333;
+  margin-bottom: 1.5rem;
+}
+
+.hero-paragraph p {
+font-family: 'Allura', cursive;
+  font-style: italic;
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: #555;
+  margin: 0.5rem 0;
+}
