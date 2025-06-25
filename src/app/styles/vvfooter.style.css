@@ -1,0 +1,102 @@
+.vv-footer {
+  background-color: #111827;
+  color: #f9fafb;
+  padding: 2rem 1rem;
+  font-family: sans-serif;
+  position: relative;
+  bottom: 0;
+  width: 100%;
+}
+
+.vv-footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: space-between;
+}
+
+.vv-footer-brand h2 {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.vv-footer-links ul {
+  list-style: none;
+  padding: 0;
+}
+
+.vv-footer-links ul li {
+  margin: 0.5rem 0;
+}
+
+.vv-footer-links ul li a {
+  color: #f9fafb;
+  text-decoration: none;
+}
+
+.vv-footer-links ul li a:hover {
+  text-decoration: underline;
+}
+
+.vv-footer-newsletter form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.vv-footer-newsletter input {
+  padding: 0.5rem;
+  border: none;
+  border-radius: 4px;
+  outline: none;
+}
+
+.vv-footer-newsletter button {
+  padding: 0.5rem;
+  border: none;
+  border-radius: 4px;
+  background-color: #2563eb;
+  color: white;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.vv-footer-newsletter button:hover {
+  background-color: #1e40af;
+}
+
+.vv-footer-icons a {
+  margin-right: 1rem;
+  font-size: 1.25rem;
+  color: #f9fafb;
+  transition: color 0.3s;
+}
+
+.vv-footer-icons a:hover {
+  color: #3b82f6;
+}
+
+.vv-footer-bottom {
+  margin-top: 2rem;
+  text-align: center;
+  font-size: 0.875rem;
+  border-top: 1px solid #374151;
+  padding-top: 1rem;
+}
+
+/* Responsive stacked layout */
+@media (max-width: 768px) {
+  .vv-footer-container {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .vv-footer-newsletter form {
+    width: 100%;
+    max-width: 300px;
+    margin: 0 auto;
+  }
+}
