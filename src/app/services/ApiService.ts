@@ -42,7 +42,8 @@ export abstract class ApiService {
   constructor(accessToken: string|null) {
     this.accessToken = accessToken;
     this.baseUrl = process.env.REACT_APP_BASE_URL ?? '';
-    this.apiClient = (this.accessToken === '' || this.accessToken) ? this.getApiClientWithoutAuthentication() : this.getApiClient();
+    this.apiClient = (this.accessToken === '' || ! this.accessToken) ? 
+      this.getApiClientWithoutAuthentication() : this.getApiClient();
     this.methodMap = {
         get     : this.apiClient.get.bind(this.apiClient),
         post    : this.apiClient.post.bind(this.apiClient),
@@ -78,7 +79,7 @@ export abstract class ApiService {
     this.abortControllerSignal = signal;
     return this;
   }
-
+  
   public request<T = any>(
     endPoint  : EndpointType,
     data?     : any,

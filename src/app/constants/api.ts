@@ -48,10 +48,11 @@ const USER: Object = {
 *
 */
 const LISTING: Object = {
-    'get'          : ():                    EndpointType => ({endpoint: `${BASE_URL}/listing/get`,  req: "get"}),
-    'post'         : ():                    EndpointType => ({endpoint: `${BASE_URL}/listing/post`,  req: "post"}),
-    'show'         : (listingId: Number):   EndpointType => ({endpoint: `${BASE_URL}/listing/${listingId}/show`,  req: "get"}),
-    'patch'        : (listingId: Number):   EndpointType => ({endpoint: `${BASE_URL}/listing/${listingId}/patch`,  req: "patch"}),
+    'get'          : ()                 :   EndpointType => ({endpoint: `${BASE_URL}/listing`,  req: "get"}),
+    'post'         : ()                 :   EndpointType => ({endpoint: `${BASE_URL}/listing`,  req: "post"}),
+    'show'         : (listingId: Number):   EndpointType => ({endpoint: `${BASE_URL}/listing/${listingId}`,  req: "get"}),
+    'patch'        : (listingId: Number):   EndpointType => ({endpoint: `${BASE_URL}/listing/${listingId}`,  req: "patch"}),
+    'delete'       : (listingId: Number):   EndpointType => ({endpoint: `${BASE_URL}/listing/${listingId}`,  req: "delete"}),
 }
 
 /*

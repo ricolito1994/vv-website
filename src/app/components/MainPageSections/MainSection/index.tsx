@@ -1,11 +1,48 @@
-import React , {useContext, useEffect} from 'react';
+import React , {useContext, useEffect, useState} from 'react';
 import bgVideo from "assets/videos/video_playback_sample.mp4";
 import { Form, Input, DatePicker, Button, Row, Col } from 'antd';
 import { AppContext } from "app/context";
-const MainSection = () :React.ReactElement => {
+import { ListingService } from 'app/services/ListingService';
+const MainSection = (): React.ReactElement <any> => {
     //const videoId = 'H1CIBqDeWQ0';
     const {OFFICIAL_VV_LOGO} = useContext(AppContext)
+    const ls = new ListingService;
     //const OFFICIAL_VV_LOGO = process.env.REACT_APP_OFFICIAL_VV_LOGO;
+    const [listings, setListings] = useState<any>({});
+
+    const submitSearchListingForm = async () => {
+      try {
+        let listings = await ls.get({});
+        setListings(listings)
+      } catch(e) {
+        //
+      }
+    }
+
+    /**
+     * 
+     * sample implementation
+     * of api services
+     * connection to backend
+     * get listing data from backend
+     * 
+     */
+    useEffect ( () => {
+      const getListings = async () => {
+        try {
+          let listing = await ls.get<any>();
+          return listing.data;
+        } catch (e) {
+          // throw 
+        }
+      }
+      //setListings(getListings());
+    }, [])
+
+    useEffect (() => {
+      // console.log(listings)
+    }, [listings]);
+
     return (
       <div className="vv-video-container">
         <video autoPlay muted loop playsInline>
@@ -59,7 +96,6 @@ const MainSection = () :React.ReactElement => {
                     <Button>BOOK NOW</Button>
                   </Form.Item>
                 </Col>
-                
               </Row>
             </Form>
           </div>
