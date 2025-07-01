@@ -65,7 +65,7 @@ const Footer: React.FC = () => {
       </div>
 
       <div className="footer-bottom">
-        &copy; {new Date().getFullYear()} Manami Resort. All rights reserved.
+        &copy; {new Date().getFullYear()} Vista Villa. All rights reserved.
       </div>
     </footer>
   );
