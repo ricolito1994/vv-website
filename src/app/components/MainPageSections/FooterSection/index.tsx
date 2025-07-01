@@ -1,51 +1,75 @@
-import React from 'react';
-import '../../../styles/vvfooter.style.css';
-import { Link } from 'react-router-dom';
+import React, {useContext} from 'react';
+import '../../../styles/mainpage.footer.css';
 
-const Footer = (): React.ReactElement => {
+import FacebookIcon from '@mui/icons-material/Facebook';
+import InstagramIcon from '@mui/icons-material/Instagram';
+import TwitterIcon from '@mui/icons-material/Twitter';
+
+import { AppContext } from "app/context";
+
+const Footer: React.FC = () => {
+
+  const {OFFICIAL_VV_LOGO} = useContext(AppContext);
+
   return (
-    <footer className="vv-footer">
-      <div className="vv-footer-container">
-        <div className="vv-footer-brand">
-          <h2>MyWebsite</h2>
-          <p>Building great experiences.</p>
+    <footer className="footer">
+      <div className="footer-container">
+
+        {/* Column 1: Logo and Tagline */}
+        <div className="footer-column">
+          <img src={OFFICIAL_VV_LOGO} alt="Logo" className="footer-logo" />
+          <p className="footer-tagline">Relaxing Highland Getaway</p>
+          <div className="footer-socials">
+            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">
+              <FacebookIcon style={{ fontSize: 24, color: '#ccc' }} />
+            </a>
+            <a href="https://twitter.com" target="_blank" rel="noopener noreferrer">
+              <TwitterIcon style={{ fontSize: 24, color: '#ccc' }} />
+            </a>
+            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">
+              <InstagramIcon style={{ fontSize: 24, color: '#ccc' }} />
+            </a>
+          </div>
         </div>
 
-        <div className="vv-footer-links">
-          <h4>Quick Links</h4>
+        {/* Column 2: Address and Contact */}
+        <div className="footer-column">
+          <h4>Contact Us</h4>
+          <div className="footer-contact">
+            <p>Don Salvador Benedicto, Negros Occidental, Philippines</p>
+            <p>Phone: (+63) 951 002 7409</p>
+            <p>Email: bookings.vistavilla@gmail.com</p>
+          </div>
+        </div>
+
+        {/* Column 3: Links */}
+        <div className="footer-column">
+          <h4>Accommodations</h4>
           <ul>
-            <li><Link to="/">Home</Link></li>
-            <li><Link to="/about">About</Link></li>
-            <li><Link to="/accommodation">Accommodation</Link></li>
-            <li><Link to="/contact">Contact</Link></li>
+            <li><a href="/gallery">Summit Villa</a></li>
+            <li><a href="/newsletter">Highland Cabin</a></li>
+            <li><a href="/offers">Hideaway Suite</a></li>
           </ul>
         </div>
 
-        <div className="vv-footer-newsletter">
-          <h4>Subscribe</h4>
-          <p>Get updates straight to your inbox.</p>
-          <form onSubmit={(e) => e.preventDefault()}>
-            <input type="email" placeholder="Your email" required />
-            <button type="submit">Subscribe</button>
-          </form>
+        {/* Column 4: Legal */}
+        <div className="footer-column">
+          <h4>Legal</h4>
+          <ul>
+            <li><a href="/privacy">Data Privacy</a></li>
+            <li><a href="/faq">FAQ</a></li>
+            <li><a href="/terms">Terms of Use</a></li>
+          </ul>
         </div>
 
-        <div className="vv-footer-social">
-          <h4>Follow Us</h4>
-          <div className="vv-footer-icons">
-            <a href="#"><i className="fab fa-facebook-f" /></a>
-            <a href="#"><i className="fab fa-twitter" /></a>
-            <a href="#"><i className="fab fa-instagram" /></a>
-            <a href="#"><i className="fab fa-github" /></a>
-          </div>
-        </div>
       </div>
 
-      <div className="vv-footer-bottom">
-        <p>&copy; {new Date().getFullYear()} MyWebsite. All rights reserved.</p>
+      <div className="footer-bottom">
+        &copy; {new Date().getFullYear()} Vista Villa. All rights reserved.
       </div>
     </footer>
   );
 };
 
 export default Footer;
+
